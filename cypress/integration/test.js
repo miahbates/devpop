@@ -10,6 +10,8 @@ it("can navigate to homepage", () => {
 // test for user sign up form on home page and redirect to news feed where username is displayed
 it("user can sign up on homepage", () => {
   cy.visit("/");
+  cy.get('button[id="signup"]').click();
+  cy.url().should("include", "/signup");
   cy.get('input[name="username"]').type("ada123");
   cy.get('input[name="email]').type("ada.lovelace@gmail.com");
   cy.get('input[name="password"]').type("ilovecoding2");
