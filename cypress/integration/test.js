@@ -45,5 +45,32 @@ it("can add item to news feed", () => {
 });
 
 // test that an item can be deleted from news feed
+it("can delete item from news feed"),
+  () => {
+    //add new item
+    cy.visit("/newsfeed");
+    cy.get('input[name="item-title"]').type("Amazing cord jacket");
+    cy.get("select").select("jacket");
+    cy.get("textarea").type("the best jacket ever!");
+    cy.get('input[name="price"]').type("150");
+    cy.get('button[type="submit"]').click();
+
+    //check how many items are on page
+
+    //delete item from page
+    cy.get("li:first").find('button[id="delete-btn"]').click();
+
+    //check total number of items in one less
+
+    //item not on page
+    cy.get("li").contains("Amazing cord jacket").should("not.exist");
+  };
 
 // test for 404 page
+it("404 if page not found", () => {
+  cy.request({ url: "/jeoanfieg", failOnStatusCode: false }).should(
+    (response) => {
+      expect(response.status).to.eq(404);
+    }
+  );
+});
