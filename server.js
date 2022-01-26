@@ -2,31 +2,27 @@ const express = require("express");
 const server = express();
 
 const staticHandler = express.static("public");
-
 server.use(staticHandler);
 
-const PORT = 3333;
+const bodyParser = express.urlencoded({ extended: false });
+server.use(bodyParser);
 
-server.get("/", (request, response) => { 
-  const html = `
-  <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="./style.css">
-      <title>Document</title>
-    </head>
-    <body>
-     <h1>hello world</h1>
-    </body>
-    </html>`;
-    
-  response.send(html);
+const PORT = process.env.PORT || 3333;
+
+const home = require("./routes/home");
+const signup = require("./routes/signup");
+const login = require("./routes/login");
+const newsFeed = require("./routes/newsfeed.js");
+const errorPage = require("./routes/404");
+
+// get
+server.get("/", home.get);
+server.get("/signup", signup.get);
+server.get("/login", login.get);
+
+// post
+server.post("/newsfeed", newsFeed.post);
+
+server.listen(PORT, () => {
+	console.log(`listening on http://localhost:${PORT}`);
 });
-
-server.listen(PORT, () => { 
-  console.log(`listening on http://localhost:${PORT}`);
-});
-
