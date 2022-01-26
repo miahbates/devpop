@@ -14,7 +14,8 @@ CREATE TABLE devpop_users (
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   seller_id INTEGER REFERENCES devpop_users(id),
-  name VARCHAR(30),
+  title VARCHAR(30),
+  product_type VARCHAR(30),
   description VARCHAR(140),
   price VARCHAR(10)
 );
@@ -30,11 +31,11 @@ INSERT INTO devpop_users (name, email, password) VALUES
   ('Miah', 'miah@miah.com', 123)
 ;
 
-INSERT INTO products (name, description, price) VALUES
-  ('Top','very sparkly red top', 20),
-  ('Trouser','very green trousers', 15),
-  ('Shoes','very un-sparkly blue shoes', 5),
-  ('Hoodie','vinatge pink hoodie', 60)
+INSERT INTO products (title, product_type, description, price) VALUES
+  ('Top', 'top', 'very sparkly red top', 20),
+  ('Trousers', 'trousers','very green trousers', 15),
+  ('Shoes', 'shoes', 'very un-sparkly blue shoes', 5),
+  ('Hoodie', 'jumper', 'vintage pink hoodie', 60)
 ;
 
 COMMIT;
