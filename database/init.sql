@@ -24,6 +24,18 @@ CREATE TABLE products (
 
 -- Insert some example data for us to test with
 
+DROP TABLE IF EXISTS sessions CASCADE;
+
+CREATE TABLE sessions (
+  sid TEXT PRIMARY KEY,
+  data JSON NOT NULL
+);
+
+INSERT INTO sessions (sid, data) VALUES (
+  'abc123',
+  '{"test":"stuff"}'
+);
+
 INSERT INTO devpop_users (name, email, password) VALUES
   ('Milly', 'milly@milly.com', 123),
   ('Orian', 'orian@orian.com', 123),
