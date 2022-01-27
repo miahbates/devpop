@@ -10,24 +10,24 @@ it("can navigate to homepage", () => {
 // test for user sign up form on home page and redirect to news feed where username is displayed
 it("user can sign up on homepage", () => {
   cy.visit("/");
-  cy.get('button[id="signup"]').click();
+  cy.get("section").find('a[id="sign-up"]').click();
   cy.url().should("include", "/signup");
-  cy.get('input[name="username"]').type("ada123");
-  cy.get('input[name="email]').type("ada.lovelace@gmail.com");
-  cy.get('input[name="password"]').type("ilovecoding2");
-  cy.get('button[type="submit"]').click();
-  cy.url().should("include", "/newsfeed").contains("ada123");
+  cy.get("form").find('input[name="name"]').type("ada123");
+  cy.get("form").find('input[name="email"]').type("ada.lovelace@gmail.com");
+  cy.get("form").find('input[name="password"]').type("ilovecoding2");
+  cy.get("form").find('button[type="submit"]').click();
+  cy.url().should("include", "/login");
 });
 
 //  test that user can login on login page and redirect to news feed
 it("user can login", () => {
   cy.visit("/");
-  cy.get('button[id="login"]').click();
+  cy.get("section").find('a[id="log-in"]').click();
   cy.url().should("include", "/login");
-  cy.get('input[name="email]').type("ada.lovelace@gmail.com");
-  cy.get('input[name="password"]').type("ilovecoding2");
-  cy.get('button[type="submit"]').click();
-  cy.url().should("include", "/newsfeed").contains("ada123");
+  cy.get("form").find('input[name="email"]').type("ada.lovelace@gmail.com");
+  cy.get("form").find('input[name="password"]').type("ilovecoding2");
+  cy.get("form").find('button[type="submit"]').click();
+  cy.url().should("include", "/newsfeed");
 });
 
 // test that an item can be added to news feed

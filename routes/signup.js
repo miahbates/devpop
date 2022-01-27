@@ -34,7 +34,7 @@ function get(request, response) {
                     minlength="8"
 					required
 				/>
-				<button type="submit" class="btn">Sign up</button>
+				<button type="submit" id="signup" class="btn">Sign up</button>
 				<a id="back-home" href="/" class="btn">Back to home</a>
 			</form>
 			
