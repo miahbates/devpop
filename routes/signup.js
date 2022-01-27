@@ -44,19 +44,26 @@ function get(request, response) {
 	response.send(html);
 }
 
-    function post(request, response) {
-	const { name, email, password} = request.body;
+function post(request, response) {
+	// collect user input from request body
+	const { name, email, password } = request.body;
+	console.log(request.body);
+	// hash the password and call model.createUserDB
+	// insert user into db and return the first row of db table (name, email, hash)
 	auth
-	.createUser(name, email, password)
-	.then(auth.saveUserSession)
-	.then((sid) => {
-		response.cookie("sid", sid, auth.COOKIE_OPTIONS);
-		response.redirect("/login");
-	})
-	.catch((error) => {
-		console.error(error);
-		response.send(`<h1>Something went wrong, sorry</h1>`);
-	});
-    }
+		.createUser(name, email, password)
+		// generates sid and calls model.createSession
+		// insert sid and user data into sessions table and returns sid column of sessions table
+		.then(auth.saveUserSession)
+		// set a cookie with the name 'sid' and value of sid and pass cookie options
+		.then((sid) => {
+			response.cookie("sid", sid, auth.COOKIE_OPTIONS);
+			response.redirect("/login");
+		})
+		.catch((error) => {
+			console.error(error);
+			response.send(`<h1>Something went wrong, sorry</h1>`);
+		});
+}
 
 module.exports = { get, post };

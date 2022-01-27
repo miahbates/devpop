@@ -35,4 +35,24 @@ function get(request, response) {
 	response.send(html);
 }
 
-module.exports = { get };
+function post(request, response) {
+    // collect user input from request body
+	const { email, password } = request.body;
+    // verify hashed password matches password input
+    // call model.getUser to retrieve user from db based on user email
+	auth
+		.verifyUser(email, password)
+        // generates sid and calls model.createSession
+		// insert sid and user data into sessions table and returns sid column of sessions table
+		.then(auth.saveUserSession)
+		.then((sid) => {
+			response.cookie("sid", sid, auth.COOKIE_OPTIONS);
+			response.redirect("/newsfeed");
+		})
+		.catch((error) => {
+			console.error(error);
+			response.send("<h1>User not found</h1>");
+		});
+}
+
+module.exports = { get, post };
