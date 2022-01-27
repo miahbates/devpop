@@ -10,10 +10,10 @@ function get(request, response) {
 		<title>DevPop</title>
 	</head>
 	<body>
-		<section>
+		<section class="flex">
 			<h1>DevPop</h1>
-			<a href="/signup" id="sign-up">Sign Up</a>
-			<a href="/login" id="log-in">Log In</a>
+			<a href="/signup" id="sign-up" class="btn">Sign Up</a>
+			<a href="/login" id="log-in" class="btn">Log In</a>
 		</section>
 	</body>
 </html>`;

@@ -12,9 +12,9 @@ function get(request, response) {
             <title>DevPop</title>
         </head>
         <body>
-            <section>
+            <section class="flex">
                 <h1>Log in</h1>
-                <form action="/login" method="POST">
+                <form action="/login" method="POST" class="flex">
                     <label for="email">Email<span aria-hidden="true">*</span></label>
                     <input type="email" name="email" required />
     
@@ -25,9 +25,9 @@ function get(request, response) {
                         minlength="8"
                         required
                     />
-                    <button type="submit">Log in</button>
+                    <button type="submit" class="btn">Log in</button>
                 </form>
-                <a id="back-home" href="/">Back to home</a>
+                <a id="back-home" href="/" class="btn">Back to home</a>
             </section>
             
         </body>
