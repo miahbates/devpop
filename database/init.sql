@@ -14,6 +14,7 @@ CREATE TABLE devpop_users (
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   seller_id INTEGER REFERENCES devpop_users(id),
+  name VARCHAR(100),
   title VARCHAR(30),
   product_type VARCHAR(30),
   description VARCHAR(140),
