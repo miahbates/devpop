@@ -1,5 +1,5 @@
 const auth = require("../auth.js");
-const db = require("./database/connection.js");
+const db = require("../database/connection.js");
 
 function get(request, response) {
 	const html = `
