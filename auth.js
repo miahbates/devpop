@@ -14,14 +14,17 @@ const COOKIE_OPTIONS = {
 function createUser(name, email, password) {
     return bcrypt.hash(password, 10)
     .then((hash) => {
-        model.createUserDB(name, email, hash)
+    return model.createUserDB(name, email, hash)
     })
     }
 
-function saveUserSession(name) {
+function saveUserSession(user) {
+    console.log(user)
     const sid = crypto.randomBytes(18)
     .toString("base64");
-    return model.createSession(sid, {name})
+    return model.createSession(sid, {user})
+    console.log(user)
+    
 
 }
 
