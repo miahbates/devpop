@@ -17,7 +17,7 @@ function createUser(name, email, password) {
 }
 
 function saveUserSession(user) {
-//   console.log('user', user) => user { id: 7, name: 'ash', email: 'ash@ash.com' }
+  console.log('user', user); // => user { id: 7, name: 'ash', email: 'ash@ash.com' }
   const sid = crypto.randomBytes(18).toString("base64");
   return model.createSession(sid, {user});
 };
