@@ -27,7 +27,7 @@ server.get("/login", login.get);
 server.get("/newsfeed", newsfeed.get);
 
 // post
-// server.post("/newsfeed", newsFeed.post);
+server.post("/newsfeed", newsfeed.post);
 server.post("/signup", signup.post);
 server.post("/login", login.post);
 
