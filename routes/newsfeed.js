@@ -1,8 +1,8 @@
 // for the get request: check if user is logged in and redirect to newsfeed
 // if not signed up or logged in - redirect to homepage
 
-function post(request, response) {
-	const html = `<!DOCTYPE html>
+function get(request, response) {
+  const html = `<!DOCTYPE html>
     <html lang="en">
         <head>
             <meta charset="UTF-8" />
@@ -20,7 +20,7 @@ function post(request, response) {
                 </section>
         </body>
     </html>`;
-	response.send(html);
+  response.send(html);
 }
 
-module.exports = { post };
+module.exports = { get };
