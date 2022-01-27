@@ -6,13 +6,14 @@ const db = require("../database/connection.js");
 const model = require("../database/model.js");
 
 function get(request, response) {
+	db.query("SELECT * FROM products").then((result) => {
+		const items = result.rows;
 
-  db.query("SELECT * FROM products").then((result) => {
-    const items = result.rows;
-    
-    // console.log("items added",items);
-    const itemsList = items.map((item) => 
-      `<li class="item">
+		// console.log("items added",items);
+		const itemsList = items
+			.map(
+				(item) =>
+					`<li class="item">
       <div>
         <h2 class="item-title">${item.title}</p>
         <p>${item.product_type}</p>
@@ -20,9 +21,11 @@ function get(request, response) {
         <p>${item.price}</p>
       </div>
     </li>`
-    ).reverse().join("");
-  
-    response.send(`<!DOCTYPE html>
+			)
+			.reverse()
+			.join("");
+
+		response.send(`<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -33,11 +36,12 @@ function get(request, response) {
     </head>
     <body>
         <section>
+            
+            <section id="news-feed-container" class="flex">
+            <div class="logo"></div>
             <h1>DevPop Feed</h1>
-            <p id="user-name-display"></p>
-            <section id="news-feed-container">
-            <h1>Add your item</h1>
-            <form action="/newsfeed" method="POST" id="add-item">
+            <p>Add your item</p>
+            <form action="/newsfeed" method="POST" id="add-item" class="flex">
 
             <label for="name">Username<span aria-hidden="true">*</span></label>
             <input type="text" name="name" required />
@@ -69,24 +73,23 @@ function get(request, response) {
                 type="number"
                 name="price"
                 required
-              />            <button type="submit" id="add-item-btn">Add item</button>
+              />            <button type="submit" id="add-item-btn" class="btn">Add item</button>
             </form>  
             <ul class="wrapper">${itemsList}</ul>    
             </section>
     </body>
   </html>`);
-  
-  });
+	});
 }
 
 function post(request, response) {
-  // collect user input from request body
-  // console.log(request.body);
-  // console.log(request.body.title);
-  // const title = request.body.title;
-  const {name, title, product_type, description, price } = request.body;
-  model.addItem(name, title, product_type, description, price);
-  response.redirect("/newsfeed");
+	// collect user input from request body
+	// console.log(request.body);
+	// console.log(request.body.title);
+	// const title = request.body.title;
+	const { name, title, product_type, description, price } = request.body;
+	model.addItem(name, title, product_type, description, price);
+	response.redirect("/newsfeed");
 }
 
 module.exports = { get, post };
