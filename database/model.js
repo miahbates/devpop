@@ -12,14 +12,12 @@ function createUserDB(name, email, hash) {
 }
 
 function createSession(sid, data) {
-    const INSERT_SESSION = `INSERT INTO sessions
-    (sid, data) VALUES ($1, $2) RETURNING sid`;
-    return db.query(INSERT_SESSION, [sid, data])
+  const INSERT_SESSION = `INSERT INTO sessions (sid, data) VALUES ($1, $2) RETURNING sid`;
+  return db.query(INSERT_SESSION, [sid, data])
     .then((result) => 
-        result.rows[0].sid);
+      result.rows[0].sid);
 }
 
 // createUser("Holly", "email@fake.com", "1234")
 
-
-module.exports = {createUserDB, createSession}
+module.exports = {createUserDB, createSession};

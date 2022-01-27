@@ -30,5 +30,5 @@ server.post("/newsfeed", newsFeed.post);
 server.post("/signup", signup.post);
 
 server.listen(PORT, () => {
-	console.log(`listening on http://localhost:${PORT}`);
+  console.log(`listening on http://localhost:${PORT}`);
 });

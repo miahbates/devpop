@@ -1,5 +1,5 @@
 function get(request, response) {
-	const html = `
+  const html = `
     <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -32,7 +32,7 @@ function get(request, response) {
         </body>
     </html>`;
 
-	response.send(html);
+  response.send(html);
 }
 
 module.exports = { get };
