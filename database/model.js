@@ -32,6 +32,16 @@ function getUser(email) {
   });
 }
 
+function getSession(sid) {
+  const SELECT_SESSION = `SELECT data FROM sessions WHERE sid=$1`;
+
+  return db.query(SELECT_SESSION, [sid]).then((result) => {
+    const singleResult = result.rows[0];
+    console.log("get session", singleResult, singleResult.data);
+    return singleResult && singleResult.data;
+  });
+}
+
 // createUser("Holly", "email@fake.com", "1234")
 
-module.exports = { createUserDB, createSession, getUser };
+module.exports = { createUserDB, createSession, getUser, getSession };
