@@ -42,6 +42,4 @@ function getSession(sid) {
   });
 }
 
-// createUser("Holly", "email@fake.com", "1234")
-
 module.exports = { createUserDB, createSession, getUser, getSession };
