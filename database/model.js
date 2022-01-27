@@ -1,4 +1,4 @@
-const db = require("./connection.js");
+const db = require("../connection.js");
 
 function createUserDB(name, email, hash) {
 	const INSERT_USER = `

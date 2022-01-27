@@ -1,5 +1,5 @@
 const model = require("../database/model.js");
-const db = require("./database/connection.js");
+const db = require("../database/connection.js");
 
 function get(request, response) {
 	const html = `

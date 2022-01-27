@@ -1,6 +1,6 @@
 const express = require("express");
 //initialise db object
-const db = require("./database/connection.js");
+const db = require("../database/connection.js");
 const server = express();
 const cookieParser = require("cookie-parser");
 
@@ -9,8 +9,6 @@ server.use(staticHandler);
 
 const bodyParser = express.urlencoded({ extended: false });
 server.use(bodyParser);
-
-const PORT = process.env.PORT || 3333;
 
 const home = require("./routes/home");
 const signup = require("./routes/signup");
@@ -32,6 +30,8 @@ server.get("/newsfeed", newsfeed.get);
 server.post("/newsfeed", newsfeed.post);
 server.post("/signup", signup.post);
 server.post("/login", login.post);
+
+const PORT = process.env.PORT || 3333;
 
 server.listen(PORT, () => {
   console.log(`listening on http://localhost:${PORT}`);
