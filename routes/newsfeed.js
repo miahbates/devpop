@@ -1,7 +1,21 @@
 // for the get request: check if user is logged in and redirect to newsfeed
 // if not signed up or logged in - redirect to homepage
+const model = require("../database/model.js");
 
 function get(request, response) {
+  const sid = request.signedCookies.sid;
+  if (sid) {
+    model
+      .getSession(sid)
+      .then((session) => {
+        response.send(html)
+      }
+    )} 
+    else {
+      response.redirect("/");
+      // send html page to say has been unsuccessful...
+    }
+
   const html = `<!DOCTYPE html>
     <html lang="en">
         <head>
@@ -20,7 +34,6 @@ function get(request, response) {
                 </section>
         </body>
     </html>`;
-  response.send(html);
 }
 
 module.exports = { get };
