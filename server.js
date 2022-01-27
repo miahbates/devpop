@@ -32,5 +32,5 @@ server.post("/signup", signup.post);
 server.post("/login", login.post);
 
 server.listen(PORT, () => {
-	console.log(`listening on http://localhost:${PORT}`);
+  console.log(`listening on http://localhost:${PORT}`);
 });
