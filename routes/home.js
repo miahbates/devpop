@@ -11,7 +11,8 @@ function get(request, response) {
 	</head>
 	<body>
 		<section class="flex">
-			<h1>DevPop</h1>
+			<h1 class="sr-only">DevPop</h1>
+			<div class="logo"></div>
 			<a href="/signup" id="sign-up" class="btn">Sign Up</a>
 			<a href="/login" id="log-in" class="btn">Log In</a>
 		</section>
