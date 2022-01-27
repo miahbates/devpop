@@ -24,7 +24,7 @@ function get(request, response) {
                         minlength="8"
                         required
                     />
-                    <button type="submit">Sign up</button>
+                    <button type="submit">Log in</button>
                 </form>
                 <a id="back-home" href="/">Back to home</a>
             </section>

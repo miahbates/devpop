@@ -1,3 +1,5 @@
+const auth = require("../auth.js");
+
 function get(request, response) {
 	const html = `<!DOCTYPE html>
 <html lang="en">
@@ -12,8 +14,8 @@ function get(request, response) {
 		<section>
 			<h1>Sign up</h1>
 			<form action="/signup" method="POST">
-				<label for="username">Username<span aria-hidden="true">*</span></label>
-				<input type="text" name="username" required />
+				<label for="name">Username<span aria-hidden="true">*</span></label>
+				<input type="text" name="name" required />
 
 				<label for="email">Email<span aria-hidden="true">*</span></label>
 				<input type="email" name="email" required />
@@ -27,7 +29,7 @@ function get(request, response) {
 					type="password"
 					name="password"
 					aria-describedby="passwordRequirements"
-                    pattern=".*\d.*"
+                  
                     minlength="8"
 					required
 				/>
@@ -42,4 +44,19 @@ function get(request, response) {
 	response.send(html);
 }
 
-module.exports = { get };
+    function post(request, response) {
+	const { name, email, password} = request.body;
+	auth
+	.createUser(name, email, password)
+	.then(auth.saveUserSession)
+	.then((sid) => {
+		response.cookie("sid", sid, auth.COOKIE_OPTIONS);
+		response.redirect("/login");
+	})
+	.catch((error) => {
+		console.error(error);
+		response.send(`<h1>Something went wrong, sorry</h1>`);
+	});
+    }
+
+module.exports = { get, post };
