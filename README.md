@@ -6,7 +6,7 @@ A place for devs to sell their vintage clothing!
 
 ## How to install
 Git clone https://github.com/fac-23/week3-auth-team2
-Run command npm install in terminal
+Run command `npm install` in terminal
 
 ## Local Database Setup
 * run `./scripts/create_db <name of your local database>`
@@ -36,8 +36,8 @@ Access locally on[localhost:3333](http://localhost:3333/)
 - [ ] A user page that shows everything posted by a single user
 - [ ] GitHub Actions CI setup to run your tests when you push
 
-Roles:
-Scrum Facilitator - Miah
-UX Design - Orian
-DevOps - Milly
-Quality Assurance - Julliette
+## Roles:
+* Scrum Facilitator - Miah
+* UX Design - Orian
+* DevOps - Milly
+* Quality Assurance - Juliette
