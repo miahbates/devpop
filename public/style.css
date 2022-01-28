@@ -52,6 +52,14 @@ body {
 	align-items: center;
 }
 
+form[action="/newsfeed"] {
+	width: 100%;
+}
+
+#news-feed-container {
+	width: 80%;
+}
+
 form input {
 	width: 50%;
 	border: 1px solid var(--darkcolor);
@@ -94,4 +102,28 @@ a {
 
 section {
 	padding: 40px 0;
+}
+
+ul {
+	list-style: none;
+}
+
+.item-list {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+}
+
+li {
+	border: 1px solid var(--darkcolor);
+	/* background-color: var(--mediumcolor); */
+}
+
+h2.item-title {
+	color: var(--textlight);
+}
+
+p {
+	font-size: 2.5rem;
 }
