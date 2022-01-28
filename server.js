@@ -1,6 +1,6 @@
 const express = require("express");
 //initialise db object
-// const db = require("../database/connection.js");
+
 const server = express();
 const cookieParser = require("cookie-parser");
 
