@@ -9,12 +9,14 @@ if (!process.env.DATABASE_URL) {
 
 console.log(process.env.DATABASE_URL);
 
+const isProduction = process.env.NODE_env === "production";
+
 // Connect to the database
 // and create a pool of available connections to support simultaneous requests
 const db = new Pool({
-  // ssl: {
-	// 	rejectUnauthorized: false,
-	// },
+  ssl: {
+    rejectUnauthorized: !isProduction
+  },
 	connectionString: process.env.DATABASE_URL
 });
 
