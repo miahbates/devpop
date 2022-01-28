@@ -86,8 +86,16 @@ function post(request, response) {
 	// console.log(request.body.title);
 	// const title = request.body.title;
 	const { name, title, product_type, description, price } = request.body;
-	model.addItem(name, title, product_type, description, price);
-	response.redirect("/newsfeed");
+  
+  model
+  .addItem(name, title, product_type, description, price)
+  .then((result) => {
+    response.redirect("/newsfeed")
+  })
+  .catch((error) => {
+    console.log(error);
+    response.redirect("/");
+  });
 }
 
 module.exports = { get, post };
