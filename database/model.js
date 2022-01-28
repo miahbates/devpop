@@ -1,4 +1,4 @@
-const db = require("../connection.js");
+const db = require("./connection.js");
 
 function createUserDB(name, email, hash) {
 	const INSERT_USER = `
@@ -22,10 +22,10 @@ function createSession(sid, data) {
 
 function addItem(name, title, product_type, description, price) {
 	// console.log("addItem name:", name);
-  //  query the db to select the id from users table where the name of the user equals the name input by users 
+	//  query the db to select the id from users table where the name of the user equals the name input by users
 	const SELLER_ID = `SELECT id FROM devpop_users WHERE devpop_users.name = ($1)`;
 	return db.query(SELLER_ID, [name]).then((result) => {
-    // result is a postgres object returned from the db query, from which we take the user id
+		// result is a postgres object returned from the db query, from which we take the user id
 		// console.log(result);
 		const INSERT_ITEM = `INSERT INTO products(name, title, product_type, description, price, seller_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING name,title, product_type, description, price`;
 		return db
@@ -35,7 +35,7 @@ function addItem(name, title, product_type, description, price) {
 				product_type,
 				description,
 				price,
-        // the seller id from the users table to insert into products table
+				// the seller id from the users table to insert into products table
 				result.rows[0].id,
 			])
 			.then((result) => {

@@ -15,10 +15,10 @@ function get(request, response) {
 				(item) =>
 					`<li class="item">
       <div>
-        <h2 class="item-title">${item.title}</p>
-        <p>${item.product_type}</p>
-        <p>${item.description}</p>
-        <p>${item.price}</p>
+        <h2 class="item-title">${item.title}</h2>
+        <p>Type: ${item.product_type}</p>
+        <p>Description: ${item.description}</p>
+        <p>£${item.price}</p>
       </div>
     </li>`
 			)
@@ -43,13 +43,11 @@ function get(request, response) {
             <p>Add your item</p>
             <form action="/newsfeed" method="POST" id="add-item" class="flex">
 
-            <label for="name">Username<span aria-hidden="true">*</span></label>
-            <input type="text" name="name" required />
+             <label for="name">Username<span aria-hidden="true">*</span></label>
+             <input type="text" name="name" required />
 
               <label for="title">Name of item<span aria-hidden="true">*</span></label>
               <input type="text" name="title" required />
-  
-           
   
               <label for="product_type">Choose product type<span aria-hidden="true">*</span></label>
               <select id="product_type" name="product_type" form="add-item" required>
@@ -75,7 +73,7 @@ function get(request, response) {
                 required
               />            <button type="submit" id="add-item-btn" class="btn">Add item</button>
             </form>  
-            <ul class="wrapper">${itemsList}</ul>    
+            <ul class="item-list">${itemsList}</ul>    
             </section>
     </body>
   </html>`);

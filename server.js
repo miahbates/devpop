@@ -1,6 +1,6 @@
 const express = require("express");
 //initialise db object
-const db = require("../database/connection.js");
+// const db = require("../database/connection.js");
 const server = express();
 const cookieParser = require("cookie-parser");
 
@@ -34,5 +34,5 @@ server.post("/login", login.post);
 const PORT = process.env.PORT || 3333;
 
 server.listen(PORT, () => {
-  console.log(`listening on http://localhost:${PORT}`);
+	console.log(`listening on http://localhost:${PORT}`);
 });
