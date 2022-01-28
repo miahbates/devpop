@@ -24,12 +24,15 @@ function saveUserSession(user) {
 
 function verifyUser(email, password) {
   //bcrypt compare current password to DB password
+  console.log("verifying", email);
   return model.getUser(email).then((user) => {
-    bcrypt.compare(password, user.password).then((match) => {
+    console.log("got user", user);
+    return bcrypt.compare(password, user.password).then((match) => {
       if (!match) {
         throw new Error("Password mismatch");
       } else {
         delete user.password;
+        console.log("returning user", user);
         return user;
       }
     });
