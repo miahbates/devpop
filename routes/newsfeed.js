@@ -20,8 +20,8 @@ function get(request, response) {
         // console.log("items added",items);
         const itemsList = items
           .map((item) => {
-            console.log(["userId", userId, "compare", item.seller_id]);
-            console.log("whats item", item);
+            // console.log(["userId", userId, "compare", item.seller_id]);
+            // console.log("whats item", item);
             if (userId === item.seller_id) {
               return `<li class="item">
               <div>
@@ -59,6 +59,11 @@ function get(request, response) {
               <title>DevPop</title>
           </head>
           <body>
+          <section>
+          <form action="/logout" method="POST">
+          <button class="btn logout">Log out</button>
+        </form>
+          </section>
               <section>
                   
                   <section id="news-feed-container" class="flex">
@@ -67,7 +72,7 @@ function get(request, response) {
                   <p>Add your item</p>
                   <form action="/newsfeed" method="POST" id="add-item" class="flex">
                   <label for="name">Username<span aria-hidden="true">*</span></label>
-                  <input type="text" name="name" required />
+                  
                     <label for="title">Name of item<span aria-hidden="true">*</span></label>
                     <input type="text" name="title" required />
                     <label for="product_type">Choose product type<span aria-hidden="true">*</span></label>

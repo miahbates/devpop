@@ -67,4 +67,18 @@ function getSession(sid) {
   });
 }
 
-module.exports = { createUserDB, createSession, getUser, getSession, addItem };
+function deleteSession(sid) {
+  const DELETE_SESSION = `DELETE FROM sessions WHERE sid=$1`;
+  return db
+    .query(DELETE_SESSION, [sid])
+    .then((result) => console.log("deleted from table"));
+}
+
+module.exports = {
+  createUserDB,
+  createSession,
+  getUser,
+  getSession,
+  addItem,
+  deleteSession,
+};

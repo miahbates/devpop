@@ -45,6 +45,7 @@ body {
 .flex {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
   width: 60%;
   margin: 0 auto;
@@ -58,6 +59,7 @@ form[action="/newsfeed"] {
 
 #news-feed-container {
   width: 80%;
+  margin-top: 50px;
 }
 
 form input {
@@ -88,7 +90,8 @@ form input:focus {
   transition: background-color 400ms ease-in-out;
 }
 
-.btn:hover {
+.btn:hover,
+#deleteItem:hover {
   background-color: var(--lightcolor);
 }
 
@@ -139,5 +142,16 @@ p {
   padding: 2px;
   border-radius: 5%; */
   padding: 2px;
+  margin-bottom: 1.5rem;
+}
+
+section {
+  padding: 10px;
+}
+
+.logout {
   float: right;
+  padding: 5px;
+  margin: 5px;
+  width: 15%;
 }
