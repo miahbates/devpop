@@ -10,6 +10,8 @@ function get(request, response) {
   db.query("SELECT * FROM products").then((result) => {
     const items = result.rows;
 
+    // to access value of cookie created
+    // for each request there will be one user and you will have access to that specfic cookie
     const sid = request.signedCookies.sid;
 
     if (sid) {
