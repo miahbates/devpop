@@ -60,7 +60,7 @@ function post(request, response) {
     // set a cookie with the name 'sid' and value of sid and pass cookie options
     .then((sid) => {
       response.cookie("sid", sid, auth.COOKIE_OPTIONS);
-      response.redirect("/newsfeed");
+      response.redirect("/login");
     })
     .catch((error) => {
       console.error(error);
