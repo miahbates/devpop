@@ -23,7 +23,7 @@ function get(request, response) {
             // console.log(["userId", userId, "compare", item.seller_id]);
             // console.log("whats item", item);
             if (userId === item.seller_id) {
-              return `<li class="item" id="deleteItem>
+              return `<li class="item">
               <div>
                 <h2 class="item-title">${item.title}</h2>
                 <p>Type: ${item.product_type}</p>
