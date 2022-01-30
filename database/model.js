@@ -74,6 +74,13 @@ function deleteSession(sid) {
     .then((result) => console.log("deleted from table"));
 }
 
+function deleteItem(id) {
+  const DELETE_ITEM = `DELETE FROM products WHERE id=$1`;
+  return db
+    .query(DELETE_ITEM, [id])
+    .then((result) => console.log("deleted from table"));
+}
+
 module.exports = {
   createUserDB,
   createSession,
@@ -81,4 +88,5 @@ module.exports = {
   getSession,
   addItem,
   deleteSession,
+  deleteItem,
 };

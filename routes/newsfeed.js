@@ -23,13 +23,16 @@ function get(request, response) {
             // console.log(["userId", userId, "compare", item.seller_id]);
             // console.log("whats item", item);
             if (userId === item.seller_id) {
-              return `<li class="item">
+              return `<li class="item" id="deleteItem>
               <div>
                 <h2 class="item-title">${item.title}</h2>
                 <p>Type: ${item.product_type}</p>
                 <p>Description: ${item.description}</p>
                 <p>£${item.price}</p>
-                <button id="deleteItem">Delete item<span class="far fa-trash-alt"></span></button>
+                <form action="/deleteitem" method="POST">
+                <input type="hidden" id="deleteInput" name="itemId" value="${item.id}"/>
+                  <button id="deleteItem">Delete item<span class="far fa-trash-alt"></span></button>
+                </form>
               </div>
             </li>`;
             } else {
@@ -72,6 +75,7 @@ function get(request, response) {
                   <p>Add your item</p>
                   <form action="/newsfeed" method="POST" id="add-item" class="flex">
                   <label for="name">Username<span aria-hidden="true">*</span></label>
+                  <input type="text" name="name" required />
                   
                     <label for="title">Name of item<span aria-hidden="true">*</span></label>
                     <input type="text" name="title" required />
