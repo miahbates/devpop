@@ -27,7 +27,7 @@ A shop for dev to post items of their vintage clothing, the focus of the project
 * To start sever run command `npm run dev`
 * For cypress testing run command `npm run test`
 
-Access locally on[localhost:3333](http://localhost:3333/)
+Access locally on [localhost:3333](http://localhost:3333/)
 
 ## User Stories :busts_in_silhouette:
 ### Core User stories
