@@ -14,7 +14,7 @@ A shop for dev to post items of their vintage clothing, the focus of the project
 * DevOps - Milly
 * Quality Assurance - Juliette
 
-## How to install
+## How to install 🛠️
 * Git clone `https://github.com/miahbates/devpop`
 * Run command `npm install` in terminal
 
