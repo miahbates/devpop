@@ -14,9 +14,10 @@ const isProduction = process.env.NODE_env === "production";
 // Connect to the database
 // and create a pool of available connections to support simultaneous requests
 const db = new Pool({
-  // ssl: {
-  //   rejectUnauthorized: !isProduction
-  // },
+  ssl: {
+    rejectUnauthorized: !isProduction,
+  },
+  // ssl: false,
   connectionString: process.env.DATABASE_URL,
 });
 
