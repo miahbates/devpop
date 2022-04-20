@@ -71,11 +71,9 @@ Access locally on [localhost:3333](http://localhost:3333/)
 * We can use the Application tab in Chrome dev tools to view cookies
 
 ## Improvements and future ideas ✨
-- Add validation to form to allow only number input for cohort.
-- When submiting fact, redirect to page wit all facts.
-- Improve css hover to ensure only 1 card is revealed.
+- Image upload or default image for different items.
 - Edit uploaded item. 
 - Filter items.
 - Create a profile.
-- Delete facts.
+
 
