@@ -79,7 +79,3 @@ Access locally on [localhost:3333](http://localhost:3333/)
 - Create a profile.
 - Delete facts.
 
-## To do: 
-* merge add item/delete item in to main.
-
-
