@@ -7,6 +7,7 @@
 A shop for dev to post items of their vintage clothing, the focus of the project was on authentication.
 
 [Deployed version here!](https://devpop.herokuapp.com/)
+(deployed version from previous repo)
 
 ## Team members
 * Scrum Facilitator - Miah
