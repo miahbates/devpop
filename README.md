@@ -52,7 +52,7 @@ Access locally on [localhost:3333](http://localhost:3333/)
 * Able to login/log out.
 * Post an item of clothing. 
 * Delete an item of clothing using a form with a type input of hidden.
-* Deployed on heroku.
+* Deployed on Heroku.
 
 ## Learning 🌱
 * We can store passwords securely.
