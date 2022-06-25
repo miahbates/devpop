@@ -9,6 +9,8 @@ A shop for dev to post items of their vintage clothing, the focus of the project
 [Deployed version here!](https://devpop.herokuapp.com/)
 (deployed version from previous repo)
 
+<img width="1393" alt="Screenshot 2022-06-25 at 21 25 49" src="https://user-images.githubusercontent.com/78933903/175789557-dc100dc2-52f3-49d5-ba1a-eb728097cc51.png">
+
 ## Team members
 * Scrum Facilitator - Miah
 * UX Design - Orian
